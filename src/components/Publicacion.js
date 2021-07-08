@@ -1,29 +1,23 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const Publicacion = ({ publicacion }) => {
-  const { id,titulo, imagen, descripcion, contacto, precio } = publicacion;
+  const { id, titulo, imagen, descripcion, contacto, precio } = publicacion;
   return (
-    <tr key={id}>
-      <td>{titulo}</td>
-      <td>{imagen}</td>
-      <td>{descripcion}</td>
-      <td>{contacto}</td>
-      <td>
-        <span className="font-weight-bold">{precio}$</span>
-      </td>
-      <td className="acciones">
-        <Link to={`/publicaciones/editar/${id}`} className="btn btn-warning">
-          Editar
-        </Link>
-        {
-        /*
-        <button type="button" className="btn btn-danger">
-          Eliminar
-        </button>
-        */}
-      </td>
-    </tr>
+    <div className="card border-primary mb-3 card-w container">
+      <div className="card-header">
+        <img
+          src={imagen}
+          className="img-fluid"
+        />
+      </div>
+
+      <div className="card-body">
+        <h4 className="card-title">{titulo}</h4>
+        <p className="card-text">{descripcion}</p>
+        <a href="/" className="btn btn-primary text-center form-control">Ver mas</a>
+      </div>
+    </div>
   );
 };
 

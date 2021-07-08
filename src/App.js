@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./components/Header";
-import Productos from "./components/Productos";
-import NuevoProducto from "./components/NuevoProducto";
-import EditarProducto from "./components/EditarProducto";
+import Publicaciones from "./components/Publicaciones";
+import NuevaPublicacion from "./components/NuevaPublicacion";
+import EditarPublicacion from "./components/EditarPublicacion";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -18,12 +18,12 @@ function App() {
         <Header />
         <div className="conntainer mt-5">
           <Switch>
-            <Route exact path="/" component={Productos} />
-            <Route exact path="/productos/nuevo" component={NuevoProducto} />
+            <Route exact path="/" component={Publicaciones} />
+            <Route exact path="/publicaciones/nueva" component={NuevaPublicacion} />
             <Route
               exact
-              path="/productos/editar/:id"
-              component={EditarProducto}
+              path="/publicaciones/editar/:id"
+              component={EditarPublicacion}
             />
           </Switch>
         </div>

@@ -1,34 +1,44 @@
 {
-  "productos": [
+  "publicaciones": [
     {
       "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
+      "imagen": "https://sc04.alicdn.com/kf/U0721a48732814105aae97d2245765dd2a.png",
+      "titulo": "Enseño React",
+      "descripcion": "Se enseña react por horas con proyectos practicos y tecnologias dinamicas",
+      "contacto": "uncorreo@correo.com",
+      "precio": 6200
     },
     {
       "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
+      "imagen": "https://www.northware.mx/wp-content/uploads/2021/04/aplicaciones-con-angular-js.jpg",
+      "titulo": "Enseño Angular",
+      "descripcion": "Se enseña angular por horas con proyectos practicos y tecnologias dinamicas",
+      "contacto": "uncorreo@correo.com",
+      "precio": 6200
     },
     {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
-      "id": 3
+      "id": 3,
+      "imagen": "https://gigacon.com.co/web/images/joomlart/demo/default.jpg",
+      "titulo": "Paseo perros",
+      "descripcion": "Se presta servicio de acompañamiento de perros",
+      "contacto": "uncorreo@correo.com",
+      "precio": 3800
     },
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
+      "id": 4,
+      "imagen": "https://sc04.alicdn.com/kf/U0721a48732814105aae97d2245765dd2a.png",
+      "titulo": "Enseño React-Redux",
+      "descripcion": "Se enseña react-redux manejo del Store, las acciones y reducers etc",
+      "contacto": "uncorreo@correo.com",
+      "precio": 4000
     },
     {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
+      "titulo": "Hago tareas",
+      "imagen": "http//imagen",
+      "descripcion": "Hago tareas bien realizadas",
+      "contacto": "camilo@correo.com",
+      "precio": 5800,
       "id": 5
-    },
-    {
-      "nombre": "Papaya",
-      "precio": 5200,
-      "id": 6
     }
   ]
 }

@@ -27,7 +27,7 @@ export function crearNuevaPublicacionAction(publicacion){
             Swal.fire(
                 'Correcto',
                 'La publicación se agregó correctamente',
-                'sucess'
+                'success'
             )
         } catch (error) {
             console.log(error);

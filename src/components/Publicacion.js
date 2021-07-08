@@ -15,7 +15,7 @@ const Publicacion = ({ publicacion }) => {
       <div className="card-body">
         <h4 className="card-title">{titulo}</h4>
         <p className="card-text">{descripcion}</p>
-        <a href="/" className="btn btn-primary text-center form-control">Ver mas</a>
+        <Link to="/" className="btn btn-primary text-center form-control">Ver mas</Link>
       </div>
     </div>
   );

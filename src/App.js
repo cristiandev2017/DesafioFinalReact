@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
+import Home from "./components/Home";
 import Publicaciones from "./components/Publicaciones";
 import NuevaPublicacion from "./components/NuevaPublicacion";
 import EditarPublicacion from "./components/EditarPublicacion";
@@ -18,13 +19,15 @@ function App() {
         <Header />
         <div className="conntainer mt-5">
           <Switch>
-            <Route exact path="/" component={Publicaciones} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/publicaciones/nueva" component={NuevaPublicacion} />
+            <Route exact path="/publicaciones" component={Publicaciones} />
             <Route
               exact
               path="/publicaciones/editar/:id"
               component={EditarPublicacion}
             />
+
           </Switch>
         </div>
       </Provider>

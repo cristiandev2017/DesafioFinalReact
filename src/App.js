@@ -7,7 +7,7 @@ import Publicaciones from "./components/Publicaciones";
 import NuevaPublicacion from "./components/NuevaPublicacion";
 import EditarPublicacion from "./components/EditarPublicacion";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 //Redux
 //Importaremos el Provider y el Store, el Store es donde fluyen los datos
@@ -16,7 +16,7 @@ import store from "./store";
 
 import {auth } from './services/firebase';
 
-/*
+
 function PrivateRoute({ component: Component, authenticated, ...rest}){
   return(
     <Route
@@ -43,7 +43,7 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
     />
   );
 }
-*/
+
 
 class App extends Component {
   constructor() {
@@ -70,23 +70,38 @@ class App extends Component {
     });
   }
   render() {
-    return (
+    return this.state.loading === true ? (
+       <h2>Loading...</h2>
+    ): (
       <Router>
         <Provider store={store}>
           <Header />
           <div className="container mt-5">
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route
+              <PublicRoute 
+                exact
+                path="/"
+                authenticated={this.state.authenticated}
+                component={Home} />
+              <PrivateRoute
                 exact
                 path="/publicaciones/nueva"
+                authenticated={this.state.authenticated}
                 component={NuevaPublicacion}
               />
-              <Route exact path="/publicaciones" component={Publicaciones} />
-              <Route exact path="/signup" component={SignUp} />
-              <Route
+              <PrivateRoute
                 exact
+                path="/publicaciones"
+                authenticated={this.state.authenticated}
+                component={Publicaciones} />
+              <PublicRoute 
+                 exact
+                 authenticated={this.state.authenticated}
+                 path="/signup" 
+                 component={SignUp} />
+              <PrivateRoute
                 path="/publicaciones/editar/:id"
+                authenticated={this.state.authenticated}
                 component={EditarPublicacion}
               />
             </Switch>

@@ -80,7 +80,7 @@ export default class Login extends Component {
           </div>
             <p>O</p>
             <button className="btn btn-danger mr-2" onClick={this.googleSignIn} type="button">
-              Ingresa con Google
+              Ingresa con Google 
             </button>
           <hr />
           <p>

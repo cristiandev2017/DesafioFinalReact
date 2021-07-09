@@ -7,7 +7,7 @@ export default class HomePage extends Component {
     return (
       <div className="row">
         <div className="col-6">
-          <div className="home">
+          <div className="border-init">
             <section>
               <div>
                 <div className="container text-center py-5">
@@ -24,7 +24,7 @@ export default class HomePage extends Component {
             </section>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-6 border-init">
           <Login/>
         </div>
       </div>

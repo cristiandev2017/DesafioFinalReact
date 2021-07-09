@@ -40,7 +40,7 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <div>
+      <div className="border-init">
         <form className="mt-5 py-5 px-5" onSubmit={this.handleSubmit}>
           <h1>
             Registrate 😉
@@ -70,8 +70,6 @@ export default class SignUp extends Component {
           <div>
             {this.state.error ? <p>{this.state.error}</p> : null}
             <button className="btn btn-primary px-5" type="submit">Registrar</button>
-            <br/><br/>
-            <p>O</p>
             <button className="btn btn-danger mr-2" onClick={this.googleSignIn} type="button">
               Ingresa con Google
             </button>

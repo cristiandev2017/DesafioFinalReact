@@ -56,5 +56,8 @@ max-width: 20rem;
 
 .image-card{
   width: 80px;
-  
+}
+
+.border-init{
+  border-style: inset;
 }

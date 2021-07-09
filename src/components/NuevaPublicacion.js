@@ -55,7 +55,7 @@ const NuevaPublicacion = ({ history }) => {
     let id = uuidv4();
     //Revisar errores
 
-    //Crear el nuevo producto
+    //Crear la nueva publicacion
     agregarPublicacion({
       id,
       titulo,

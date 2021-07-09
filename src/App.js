@@ -1,6 +1,8 @@
-import React from "react";
+import React,{Component}  from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Login from "./components/Login";
+import SignUp from "./components/signUp";
 import Publicaciones from "./components/Publicaciones";
 import NuevaPublicacion from "./components/NuevaPublicacion";
 import EditarPublicacion from "./components/EditarPublicacion";
@@ -12,27 +14,87 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
-function App() {
-  return (
-    <Router>
-      <Provider store={store}>
-        <Header />
-        <div className="conntainer mt-5">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/publicaciones/nueva" component={NuevaPublicacion} />
-            <Route exact path="/publicaciones" component={Publicaciones} />
-            <Route
-              exact
-              path="/publicaciones/editar/:id"
-              component={EditarPublicacion}
-            />
+import {auth } from './services/firebase';
 
-          </Switch>
-        </div>
-      </Provider>
-    </Router>
+/*
+function PrivateRoute({ component: Component, authenticated, ...rest}){
+  return(
+    <Route
+      {...rest}
+      render = {(props) => authenticated == true
+      ? <Component {...props} />
+      : <Redirect to={{pathname: '/', state: { from: props.location} }} />
+      }
+    />
+  )
+}
+
+function PublicRoute({ component: Component, authenticated, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        authenticated === false ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/publicaciones" />
+        )
+      }
+    />
   );
+}
+*/
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      authenticated: false,
+      loading: true,
+    };
+  }
+
+  componentDidMount() {
+    auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          authenticated: true,
+          loading: false,
+        });
+      } else {
+        this.setState({
+          authenticated: false,
+          loading: false,
+        });
+      }
+    });
+  }
+  render() {
+    return (
+      <Router>
+        <Provider store={store}>
+          <Header />
+          <div className="container mt-5">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route
+                exact
+                path="/publicaciones/nueva"
+                component={NuevaPublicacion}
+              />
+              <Route exact path="/publicaciones" component={Publicaciones} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route
+                exact
+                path="/publicaciones/editar/:id"
+                component={EditarPublicacion}
+              />
+            </Switch>
+          </div>
+        </Provider>
+      </Router>
+    );
+  }
 }
 
 export default App;

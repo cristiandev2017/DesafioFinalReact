@@ -63,7 +63,7 @@ const NuevaPublicacion = ({ history }) => {
     });
 
     //Redirecciono al home o a la lista
-    history.push("/");
+    history.push("/publicaciones");
   };
 
   return (

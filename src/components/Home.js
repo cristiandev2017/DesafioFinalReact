@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import { Link } from "react-router-dom";
+import Login from "./Login"
+//import { Link } from "react-router-dom";
 
 export default class HomePage extends Component {
   render() {
@@ -17,16 +17,15 @@ export default class HomePage extends Component {
                     Tambien puedes ver lo que otros han publicado es una
                     plataforma para ofrecer tus conocimientos y/o servicios
                   </p>
-                  <hr/>
-                  <div className="mt-4">
-                    <Link className="btn btn-primary px-5 mr-3" to="/signup">
-                      Crear Nueva Cuenta
-                    </Link>
-                  </div>
+                  <hr />
+                  🤠 👩‍💻 👨‍🏫 👨‍🎓 👨‍🍳 👩‍🌾 🕵️‍♂️ 👨‍⚕️ 👩‍🔧 👨‍🔬
                 </div>
               </div>
             </section>
           </div>
+        </div>
+        <div className="col-6">
+          <Login/>
         </div>
       </div>
     );

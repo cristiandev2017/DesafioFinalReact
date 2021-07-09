@@ -44,6 +44,15 @@
       "categoria": "Hogar",
       "precio": 150000,
       "id": 5
+    },
+    {
+      "titulo": "Diego",
+      "imagen": "https://www.unir.net/wp-content/uploads/2021/04/la-universidad-que-necesitamos_c-2-1.jpg ",
+      "descripcion": "Diego Firebase React",
+      "contacto": "camilo@correo.com",
+      "categoria": "Escolar/Universitario",
+      "precio": 27000,
+      "id": 6
     }
   ]
 }

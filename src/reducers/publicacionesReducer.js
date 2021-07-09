@@ -4,14 +4,16 @@ import {
     AGREGAR_PUBLICACION_ERROR,
     COMENZAR_DESCARGA_PUBLICACIONES,
     DESCARGAR_PUBLICACIONES_EXITO,
-    DESCARGAR_PUBLICACIONES_ERROR
+    DESCARGAR_PUBLICACIONES_ERROR,
+    OBTENER_PUBLICACION
 } from '../types';
 
 //Cada reducer tiene su propio state
 const initialState = {
     publicaciones: [],
     error:null,
-    loading:false
+    loading:false,
+    publicacionobtener:null
 }
 
 export default function(state = initialState, action){
@@ -51,6 +53,11 @@ export default function(state = initialState, action){
                 loading: false,
                 error: action.payload
             }
+        case OBTENER_PUBLICACION:
+            return{
+                ...state,
+                publicacionobtener:action.payload
+            }   
         default:
             return state;
     }

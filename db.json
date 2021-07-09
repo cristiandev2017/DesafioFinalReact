@@ -53,6 +53,24 @@
       "categoria": "Escolar/Universitario",
       "precio": 27000,
       "id": 6
+    },
+    {
+      "titulo": "Una publicacion de tecnologia",
+      "imagen": "https://miro.medium.com/max/1024/1*vxjAHkrXbGG6gOiPZgjeZA.jpeg",
+      "descripcion": "Una descripcion de la publicacion de tecnologia",
+      "contacto": "camilo.correo@correo.com",
+      "categoria": "Tecnologia",
+      "precio": 340000,
+      "id": 7
+    },
+    {
+      "titulo": "Otra Publicacion",
+      "imagen": "https://miro.medium.com/max/1024/1*vxjAHkrXbGG6gOiPZgjeZA.jpeg",
+      "descripcion": "En este caso es una publicacion dinamica de lo que quiero vender",
+      "contacto": "cristian@elmejor.com",
+      "categoria": "Tecnologia",
+      "precio": 1200000,
+      "id": 8
     }
   ]
 }

@@ -4,7 +4,10 @@ import {
     AGREGAR_PUBLICACION_ERROR,
     COMENZAR_DESCARGA_PUBLICACIONES,
     DESCARGAR_PUBLICACIONES_EXITO,
-    DESCARGAR_PUBLICACIONES_ERROR
+    DESCARGAR_PUBLICACIONES_ERROR,
+    OBTENER_PUBLICACION,
+    PUBLICACION_OBTENIDA_EXITO,
+    PUBLICACION_OBTENIDA_ERROR
 } from '../types';
 
 import clienteAxios from '../config/axios';
@@ -90,4 +93,16 @@ const descargaPublicacionesExitosa = publicacion =>({
 const descargaPublicacionesError = () =>({
     type:DESCARGAR_PUBLICACIONES_ERROR,
     payload:true
+})
+
+//Esto es una accion para traer una publicacion
+export function obtenerPublicacionVer(publicacion){
+    return (dispatch) =>{
+        dispatch( obtenerPublicacionVerAction(publicacion) )
+    }
+}
+
+const obtenerPublicacionVerAction = publicacion =>({
+    type: OBTENER_PUBLICACION,
+    payload: publicacion
 })

@@ -12,7 +12,7 @@ import {
 
 import clienteAxios from '../config/axios';
 import Swal from 'sweetalert2';
-
+import {db} from "../services/firebase";
 //Esta es la que se utilizara en la vista
 
 //Crear nuevas publicaciones
@@ -20,9 +20,12 @@ export function crearNuevaPublicacionAction(publicacion){
     return async (dispatch) =>{
         dispatch(agregarPublicacion());
         try {
-            //Aca se insertara en la base de datos | API
-            await clienteAxios.post('publicaciones', publicacion);
-
+            //Aca se insertara en la base de datos | API Con axios
+            //await clienteAxios.post('publicaciones', publicacion);
+            await db.ref("publicaciones").push({
+                ...publicacion
+            });
+            
             //Si todo sale bien, actualizare el state
             dispatch(agregarPublicacionExito(publicacion))
 
@@ -68,12 +71,16 @@ const agregarPublicacionError = (estado)=>({
 export function obtenerPublicacionesAction(){
     return async (dispatch)=>{
         dispatch(descargarPublicaciones());
-
         try {
-            //Hago la operacion para traer los datos de la base de datos
-            const respuesta = await clienteAxios.get('/publicaciones');
-            //console.log(respuesta.data);
-            dispatch(descargaPublicacionesExitosa(respuesta.data))
+            //Hago la operacion para traer los datos de la base de datos API
+            //const respuesta = await clienteAxios.get('/publicaciones');
+            await db.ref("publicaciones").on("value", snapshot => {
+            let datapublications = [];
+            snapshot.forEach((snap) => {
+                datapublications.push(snap.val());
+                })
+            dispatch(descargaPublicacionesExitosa(datapublications))
+            });
         } catch (error) {   
             dispatch(descargaPublicacionesError())
         }

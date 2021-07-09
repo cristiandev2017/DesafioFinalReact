@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {v4 as uuidv4} from "uuid";
 
 //Actions de redux
 import { crearNuevaPublicacionAction } from "../actions/publicacionActions";
@@ -50,10 +51,13 @@ const NuevaPublicacion = ({ history }) => {
             imagen= "https://undefined.co.jp/img/og.png"
             break;
     }
+    //Le mando el id
+    let id = uuidv4();
     //Revisar errores
 
     //Crear el nuevo producto
     agregarPublicacion({
+      id,
       titulo,
       imagen,
       descripcion,

@@ -33,7 +33,6 @@ const Header = () => {
           >
             Ingresar
           </Link>
-          OR
           <Link
             to={"/signup"}
             className="btn btn-danger nuevo-post d-block d-md-inline-block"

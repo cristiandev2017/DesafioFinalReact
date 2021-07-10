@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {v4 as uuidv4} from "uuid";
-
+import { v4 as uuidv4 } from "uuid";
+import Swal from "sweetalert2";
 //Actions de redux
 import { crearNuevaPublicacionAction } from "../actions/publicacionActions";
 
@@ -12,7 +12,7 @@ const NuevaPublicacion = ({ history }) => {
   const [descripcion, setDescripcion] = useState("");
   const [contacto, setContacto] = useState("");
   //const [imagen, setImagen] = useState("");
-  const [categoria,setCategoria] = useState("");
+  const [categoria, setCategoria] = useState("");
   const [precio, setPrecio] = useState(0);
 
   //Utilizar use dispatch y te crea una funcion
@@ -32,24 +32,33 @@ const NuevaPublicacion = ({ history }) => {
     e.preventDefault();
 
     //Validar formulario
-    if (titulo.trim() === "") {
+    if (titulo.trim() === "" || descripcion.trim() === "") {
+      //alerta de error
+      Swal.fire({
+        icon: error,
+        title: "Hubo un error",
+        text: "Tiene campos vacios verifique por favor",
+      });
       return;
     }
     //Valido para saber que imagen mandar
     let imagen = "";
     switch (categoria) {
-        case "Tecnologia":
-            imagen = "https://miro.medium.com/max/1024/1*vxjAHkrXbGG6gOiPZgjeZA.jpeg"
-            break;
-        case "Hogar":
-            imagen = "https://geeksroom.com/wp-content/uploads/2018/05/professional-services-home.jpg"
-            break;
-        case "Escolar/Universitario":
-            imagen = "https://www.unir.net/wp-content/uploads/2021/04/la-universidad-que-necesitamos_c-2-1.jpg "
-            break;
-        default:
-            imagen= "https://undefined.co.jp/img/og.png"
-            break;
+      case "Tecnologia":
+        imagen =
+          "https://miro.medium.com/max/1024/1*vxjAHkrXbGG6gOiPZgjeZA.jpeg";
+        break;
+      case "Hogar":
+        imagen =
+          "https://geeksroom.com/wp-content/uploads/2018/05/professional-services-home.jpg";
+        break;
+      case "Escolar/Universitario":
+        imagen =
+          "https://www.unir.net/wp-content/uploads/2021/04/la-universidad-que-necesitamos_c-2-1.jpg ";
+        break;
+      default:
+        imagen = "https://undefined.co.jp/img/og.png";
+        break;
     }
     //Le mando el id
     let id = uuidv4();
@@ -86,6 +95,9 @@ const NuevaPublicacion = ({ history }) => {
                   className="form-control"
                   name="titulo"
                   value={titulo}
+                  minLength={5}
+                  maxLength={40}
+                  required={true}
                   onChange={(e) => setTitulo(e.target.value)}
                 />
               </div>
@@ -96,6 +108,9 @@ const NuevaPublicacion = ({ history }) => {
                   className="form-control"
                   name="descripcion"
                   value={descripcion}
+                  minLength={10}
+                  maxLength={100}
+                  required={true}
                   onChange={(e) => setDescripcion(e.target.value)}
                 />
               </div>
@@ -111,12 +126,17 @@ const NuevaPublicacion = ({ history }) => {
               </div>
               <div className="form-group">
                 <label>Categoria</label>
-                <select  className="form-control" name="categoria"  value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+                <select
+                  className="form-control"
+                  name="categoria"
+                  value={categoria}
+                  onChange={(e) => setCategoria(e.target.value)}
+                >
                   <option></option>
                   <option>Tecnologia</option>
                   <option>Hogar</option>
-                  <option >Escolar/Universitario</option>
-                  <option >Otro</option>
+                  <option>Escolar/Universitario</option>
+                  <option>Otro</option>
                 </select>
               </div>
               <div className="form-group">

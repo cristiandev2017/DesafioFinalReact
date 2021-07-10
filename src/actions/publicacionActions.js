@@ -10,7 +10,7 @@ import {
     PUBLICACION_OBTENIDA_ERROR
 } from '../types';
 
-import clienteAxios from '../config/axios';
+//import clienteAxios from '../config/axios';
 import Swal from 'sweetalert2';
 import {db} from "../services/firebase";
 //Esta es la que se utilizara en la vista

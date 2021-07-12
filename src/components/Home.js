@@ -6,7 +6,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-6">
+        <div className="col">
           <div className="border-init">
             <section>
               <div>
@@ -24,7 +24,7 @@ export default class HomePage extends Component {
             </section>
           </div>
         </div>
-        <div className="col-6 border-init">
+        <div className="col border-init">
           <Login/>
         </div>
       </div>

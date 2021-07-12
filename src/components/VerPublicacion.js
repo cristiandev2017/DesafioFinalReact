@@ -14,7 +14,7 @@ const VerPublicacion = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-6">
+        <div className="col">
           <div className="card border-light mb-3">
             <div className="card-header">
               <h4 className="card-title text-center">{titulo}</h4>
@@ -24,7 +24,7 @@ const VerPublicacion = () => {
             </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col">
           <div class="card text-white bg-primary mb-3">
             <div class="card-header">Información</div>
             <div class="card-body">
